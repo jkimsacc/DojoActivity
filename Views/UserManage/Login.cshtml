@@ -1,0 +1,16 @@
+@model DojoActivity.Models.LoginViewModel
+<div>
+    <h2>Login</h2>
+    <form asp-controller="UserManage" asp-action="login" method="post">
+        <p>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email">
+        </p>
+        <p>
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" type = "password">
+        </p>
+        <button type="sumbit">Login</button>
+    </form>
+    <span>@ViewBag.Errors</span>
+</div>

@@ -1,0 +1,27 @@
+@Html.Partial("Header")
+<h3>Create an Activity!</h3>
+<form action="new" method="post">
+    <p>
+        <label for="Title">Title: </label>
+        <input name="Title">
+        <label for="Time">Time: </label>
+        <input name="Time" type="time">
+    </p>
+    <p>
+        <label for="Day">Date: </label>
+        <input name="Day" type="date">
+        <label for="Duration">Duration: </label>
+        <input name="Duration">
+        <select name="Unit">
+            <option value="Hour(s)">Hour(s)</option>
+            <option value="Minutes(s)">Minute(s)</option>
+            <option value ="Day(s)">Day(s)</option>
+        </select>
+    </p>
+    <p>
+        <label for="Description">Description: </label>
+        <textarea name="Description"></textarea>
+    </p>
+    <button type="submit">Create Activity</button>
+    <span>@ViewBag.Errors</span>
+</form>

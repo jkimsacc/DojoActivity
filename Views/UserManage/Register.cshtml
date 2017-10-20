@@ -1,0 +1,32 @@
+@model DojoActivity.Models.RegisterViewModel
+
+<h2>Register</h2>
+<form asp-controller="UserManage" asp-action="register" method="post">
+    <p>
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName">
+    </p>
+    <span asp-validation-for="FirstName"></span>
+    <p>
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName">
+    </p>
+    <span asp-validation-for="LastName"></span>
+    <p>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email">
+    </p>
+    <span asp-validation-for="Email"></span>
+    <p>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password">
+    </p>
+    <span asp-validation-for="Password"></span>
+    <p>
+        <label asp-for="Confirm">Confirm Password</label>
+        <input asp-for="Confirm" type="password">
+    </p>
+    <span asp-validation-for="Confirm"></span>
+    <p><button type="sumbit">Register</button></p>
+</form>
+

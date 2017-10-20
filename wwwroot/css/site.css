@@ -1,0 +1,5 @@
+/*Write all of your CSS here*/
+label{
+    display: inline-block;
+    width: 200px;
+}

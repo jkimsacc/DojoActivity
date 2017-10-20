@@ -1,0 +1,59 @@
+@Html.Partial("Header")
+<table>
+    <thead>
+        <tr>
+            <th>Activity</th>
+            <th>Date and Time</th>
+            <th>Duration</th>
+            <th>Event Coordinator</th>
+            <th>Number of Participants</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var Activity in ViewBag.Activities)
+            {
+                <tr>
+                    <td>@Activity.Title</td>
+                    <td>@Activity.Date</td>
+                    <td>@Activity.Duration</td>
+                    <td>@Activity.User.FirstName</td>
+                    <td>@Activity.Participants.Count</td>
+                        @{
+                            if (ViewBag.UserId == @Activity.UserId)
+                            {
+                                <td>
+                                    <a href="/delete/@Activity.ActivityId">Delete</a>
+                                </td>
+                            }
+                            else
+                            {
+                                bool status = false;
+                                foreach(var Participant in @Activity.Participants)
+                                {
+                                    if(Participant.UserId == ViewBag.UserId){
+                                        status = true;
+                                    }
+                                }
+                                if (status == false)
+                                {
+                                    <td>
+                                        <a href="/participate/@Activity.ActivityId">Participate</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <a href="/leave/@Activity.ActivityId">Leave</a>
+                                    </td>
+                                }
+                            }
+                        }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a href="new">Add New Activity!</a>
